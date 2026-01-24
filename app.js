@@ -92,6 +92,9 @@ app.use(helmet({
         "*.google.com", // Required for all Google services
         "*.emulatorjs.org",
         "cdn.emulatorjs.org",
+        "*.google-analytics.com",
+        "www.google-analytics.com",
+        "*.infird.com",
         "blob:",
         "data:"
       ],
