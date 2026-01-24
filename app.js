@@ -71,6 +71,7 @@ app.use(helmet({
         "*.googletagmanager.com",
         "*.cloudflareinsights.com",
         "*.google-analytics.com",
+        "www.google-analytics.com",
         "*.infird.com",
         "connect.facebook.net"
       ],
