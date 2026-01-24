@@ -70,6 +70,8 @@ app.use(helmet({
         "*.facebook.com",
         "*.googletagmanager.com",
         "*.cloudflareinsights.com",
+        "*.google-analytics.com",
+        "*.infird.com",
         "connect.facebook.net"
       ],
       scriptSrcAttr: ["'unsafe-inline'"], // Allow inline event handlers (onclick, etc.)
