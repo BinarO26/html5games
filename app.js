@@ -68,6 +68,8 @@ app.use(helmet({
         "*.google.com", // Required for all Google services including AdSense, Funding Choices, etc.
         "accounts.google.com", // Required for Google Identity Services
         "*.facebook.com",
+        "*.googletagmanager.com",
+        "*.cloudflareinsights.com",
         "connect.facebook.net"
       ],
       scriptSrcAttr: ["'unsafe-inline'"], // Allow inline event handlers (onclick, etc.)
