@@ -230,7 +230,7 @@ const initializeGoogleStrategy = async () => {
             });
         }
 
-        passport.use('google', new GoogleStrategy({
+        passport.use(new GoogleStrategy({
             clientID: clientId,
             clientSecret: clientSecret,
             callbackURL: callbackURL,
