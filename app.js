@@ -137,6 +137,20 @@ if (process.env.ENVIRONMENT !== 'production') {
   });
 }
 
+
+// Secure session configuration
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true, // Need to save for CSRF tokens to work
+  name: 'arcade.sid', // Change default session name
+  cookie: {
+    secure: process.env.ENVIRONMENT === 'production', // Use secure cookies in production
+    httpOnly: true, // Prevent XSS attacks
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    sameSite: 'lax' // CSRF protection
+  }
+}));
 // Initialize Passport.js for OAuth
 app.use(passport.initialize());
 app.use(passport.session());
@@ -211,19 +225,7 @@ app.use(express.json({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Secure session configuration
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true, // Need to save for CSRF tokens to work
-  name: 'arcade.sid', // Change default session name
-  cookie: {
-    secure: process.env.ENVIRONMENT === 'production', // Use secure cookies in production
-    httpOnly: true, // Prevent XSS attacks
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
-    sameSite: 'lax' // CSRF protection
-  }
-}));
+
 
 
 
