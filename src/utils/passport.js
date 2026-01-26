@@ -1,6 +1,6 @@
 import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import GoogleStrategy from 'passport-google-oauth20';
 import { getSetting } from '../models/settings.js';
 import { getUserById, createUser } from '../models/users.js';
 import { createOrUpdateOAuthAccount, getOAuthAccount, findOAuthAccountByEmail } from '../models/oauth_accounts.js';
