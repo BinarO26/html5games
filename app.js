@@ -137,6 +137,11 @@ if (process.env.ENVIRONMENT !== 'production') {
   });
 }
 
+// Initialize Passport.js for OAuth
+app.use(passport.initialize());
+app.use(passport.session());
+await initializePassport();
+
 // Rate limiting configuration from environment variables
 const limiter = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // Default: 15 minutes
@@ -220,10 +225,7 @@ app.use(session({
   }
 }));
 
-// Initialize Passport.js for OAuth
-app.use(passport.initialize());
-app.use(passport.session());
-await initializePassport();
+
 
 // CSRF token generation middleware (always provide token)
 app.use((req, res, next) => {
