@@ -234,7 +234,8 @@ const initializeGoogleStrategy = async () => {
             clientID: clientId,
             clientSecret: clientSecret,
             callbackURL: callbackURL,
-            scope: ['profile', 'email']
+            scope: ['profile', 'email'],
+             state: true
         }, async (accessToken, refreshToken, profile, done) => {
             try {
                 const result = await handleOAuthProfile('google', profile, accessToken, refreshToken);
